@@ -5,7 +5,6 @@ import {
     collection,
     getDocs,
     addDoc,
-    updateDoc,
     deleteDoc,
 } from "firebase/firestore";
 
@@ -53,19 +52,19 @@ export async function addProduct(product) {
 }
 
 // Actualizar un producto existente
-export async function updateProduct(id, product) {
-    try {
-        await updateDoc(doc(db, "products", id), product);
-        console.log("Producto actualizado: ", JSON.stringify(product, null, 2));
-        return {
-            id,
-            ...product,
-        };
-    } catch (error) {
-        console.error("Error updating document: ", error);
-        throw error;
-    }
-}
+// export async function updateProduct(id, product) {
+//     try {
+//         await updateDoc(doc(db, "products", id), product);
+//         console.log("Producto actualizado: ", JSON.stringify(product, null, 2));
+//         return {
+//             id,
+//             ...product,
+//         };
+//     } catch (error) {
+//         console.error("Error updating document: ", error);
+//         throw error;
+//     }
+// }
 
 // Eliminar un producto por ID
 export async function deleteProduct(id) {

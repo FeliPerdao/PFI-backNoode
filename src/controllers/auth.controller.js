@@ -1,4 +1,4 @@
-import { generateToken } from "../data/tokentest.js";
+import { generateToken } from "../data/token.js";
 
 const default_user = {
     email: "test@gmail.com",

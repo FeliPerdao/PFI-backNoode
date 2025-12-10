@@ -4,15 +4,18 @@ import {
     getProductById,
     addProduct,
     deleteProduct,
-    editProduct,
 } from "../controllers/products.controller.js";
+import { authentication } from "../middlewares/auth.middleware.js";
 
 const routes = express.Router();
 
+//Públicas
 routes.get("/", getAllProducts); // Obtener todos los productos
 routes.get("/:id", getProductById); // Obtener un producto por ID
-routes.post("/add", addProduct); // Agregar un nuevo producto
-routes.put("/:id", editProduct); // Actualizar un producto existente
+
+//Protegidas
+routes.use(authentication);
+routes.post("/create", addProduct); // Agregar un nuevo producto
 routes.delete("/:id", deleteProduct); // Eliminar un producto por ID
 
 export default routes;

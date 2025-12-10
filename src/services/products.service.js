@@ -2,7 +2,6 @@ import {
     getProduct,
     getAllProducts,
     addProduct,
-    updateProduct,
     deleteProduct,
 } from "../models/products.models.js";
 
@@ -22,6 +21,6 @@ export const deleteProductService = (id) => {
     return deleteProduct(id);
 };
 
-export const editProductService = (id, product) => {
-    return updateProduct(id, product);
-};
+// export const editProductService = (id, product) => {
+//     return updateProduct(id, product);
+// };

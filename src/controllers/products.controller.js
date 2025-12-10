@@ -3,7 +3,6 @@ import {
     getProductByIdService,
     addProductService,
     deleteProductService,
-    editProductService,
 } from "../services/products.service.js";
 
 export const getAllProducts = async (req, res) => {
@@ -55,24 +54,24 @@ export const deleteProduct = async (req, res) => {
     }
 };
 
-export const editProduct = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const productData = req.body;
+// export const editProduct = async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const productData = req.body;
 
-        if (!id) {
-            return res.status(400).json({ message: "ID requerido" });
-        }
+//         if (!id) {
+//             return res.status(400).json({ message: "ID requerido" });
+//         }
 
-        delete productData.id; // Para no enviar el ID en la actualización
+//         delete productData.id; // Para no enviar el ID en la actualización
 
-        const updatedProduct = await editProductService(id, productData);
+//         const updatedProduct = await editProductService(id, productData);
 
-        res.status(200).json({
-            id,
-            ...updatedProduct,
-        });
-    } catch (error) {
-        res.status(500).json({ message: "Error interno del servidor" });
-    }
-};
+//         res.status(200).json({
+//             id,
+//             ...updatedProduct,
+//         });
+//     } catch (error) {
+//         res.status(500).json({ message: "Error interno del servidor" });
+//     }
+// };
